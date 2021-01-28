@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 
-  s.name     = 'CocoaLumberjack'
+  s.name     = 'CocoaLumberjackSwift'
   s.version  = '3.7.0'
   s.license  = 'BSD'
   s.summary  = 'A fast & simple, yet powerful & flexible logging framework for macOS, iOS, tvOS and watchOS.'
@@ -14,8 +14,6 @@ Pod::Spec.new do |s|
                   'such as multi-threading, grand central dispatch (if available), lockless '      \
                   'atomic operations, and the dynamic nature of the objective-c runtime.'
 
-  s.preserve_paths = 'README.md'
-
   s.ios.deployment_target     = '9.0'
   s.osx.deployment_target     = '10.10'
   s.watchos.deployment_target = '3.0'
@@ -25,15 +23,6 @@ Pod::Spec.new do |s|
   s.requires_arc   = true
   s.swift_version = '5.0'
 
-  s.default_subspecs = 'Core'
-
-  s.subspec 'Core' do |ss|
-    ss.source_files         = 'Sources/CocoaLumberjack/**/*.{h,m}'
-    ss.private_header_files = 'Sources/CocoaLumberjack/DD*Internal.{h}'
-  end
-
-  s.subspec 'Swift' do |ss|
-    ss.dependency 'CocoaLumberjack/Core'
-    ss.source_files        = 'Sources/CocoaLumberjackSwift/**/*.swift', 'Sources/CocoaLumberjackSwiftSupport/include/**/*.{h}'
-  end
+  s.dependency 'CocoaLumberjack'
+  s.source_files = 'Sources/CocoaLumberjackSwift/**/*.swift', 'Sources/CocoaLumberjackSwiftSupport/include/**/*.{h}'
 end
